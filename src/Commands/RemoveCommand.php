@@ -11,9 +11,11 @@ class RemoveCommand extends Command
 
     public $description = 'Remove a TALL.';
 
+
+
     public function handle()
     {
-        $this->parser = new ComponentParser(
+        $parser = new ComponentParser(
             config('livewire.class_namespace', 'App\\Http\\Livewire'),
             config('livewire.view_path', resource_path('views/livewire')),
             $this->argument('name')

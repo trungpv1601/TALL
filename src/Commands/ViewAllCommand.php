@@ -27,12 +27,12 @@ class ViewAllCommand extends GeneratorCommand
             [
                 '[class]',
                 '[view]',
-                '[model]'
+                '[model]',
             ],
             [
                 trim($this->argument('name')),
                 strtolower(trim($this->argument('name'))),
-                Str::singular(trim($this->argument('name')))
+                Str::singular(trim($this->argument('name'))),
             ],
             $stub
         );

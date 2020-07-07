@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Trungpv1601\TALL\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TALLCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'TALL';
 
     public $description = 'My command';
 

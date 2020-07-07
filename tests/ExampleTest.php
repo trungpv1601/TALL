@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Trungpv1601\TALL\Tests;
 
 class ExampleTest extends TestCase
 {

@@ -4,6 +4,11 @@ namespace Trungpv1601\TALL;
 
 use Illuminate\Support\ServiceProvider;
 use Trungpv1601\TALL\Commands\TALLCommand;
+use Trungpv1601\TALL\Commands\CreateCommand;
+use Trungpv1601\TALL\Commands\DeleteCommand;
+use Trungpv1601\TALL\Commands\UpdateCommand;
+use Trungpv1601\TALL\Commands\ViewAllCommand;
+use Trungpv1601\TALL\Commands\ViewCommand;
 
 class TALLServiceProvider extends ServiceProvider
 {
@@ -20,12 +25,17 @@ class TALLServiceProvider extends ServiceProvider
 
             if (! class_exists('CreatePackageTable')) {
                 $this->publishes([
-                    __DIR__ . '/../database/migrations/create_TALL_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_TALL_table.php'),
+                    // __DIR__ . '/../database/migrations/create_TALL_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_TALL_table.php'),
                 ], 'migrations');
             }
 
             $this->commands([
                 TALLCommand::class,
+                CreateCommand::class,
+                UpdateCommand::class,
+                DeleteCommand::class,
+                ViewAllCommand::class,
+                ViewCommand::class
             ]);
         }
 

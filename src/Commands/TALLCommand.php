@@ -7,17 +7,17 @@ use Illuminate\Support\Str;
 
 class TALLCommand extends Command
 {
-    public $signature = 'make:tall-crud {model}';
+    public $signature = 'make:tall {model}';
 
-    public $description = 'Make TALL CRUD interface for model.';
+    public $description = 'Make TALL interface for model.';
 
     public function handle()
     {
-        $this->callSilent('tall-crud:view-all', ['name' => Str::plural($this->argument('model'))]);
-        $this->callSilent('tall-crud:create', ['name' => $this->argument('model')]);
-        $this->callSilent('tall-crud:update', ['name' => $this->argument('model')]);
-        $this->callSilent('tall-crud:view', ['name' => $this->argument('model')]);
-        $this->callSilent('tall-crud:delete', ['name' => $this->argument('model')]);
+        $this->callSilent('tall:view-all', ['name' => Str::plural($this->argument('model'))]);
+        $this->callSilent('tall:create', ['name' => $this->argument('model')]);
+        $this->callSilent('tall:update', ['name' => $this->argument('model')]);
+        $this->callSilent('tall:view', ['name' => $this->argument('model')]);
+        $this->callSilent('tall:delete', ['name' => $this->argument('model')]);
 
         $this->comment('All done');
     }

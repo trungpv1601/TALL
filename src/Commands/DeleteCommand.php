@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 class DeleteCommand extends GeneratorCommand
 {
-    public $name = 'tall-crud:delete';
+    public $name = 'tall:delete';
 
-    public $description = 'Make TALL CRUD Delete interface for model.';
+    public $description = 'Make TALL Delete interface for model.';
 
     protected function getStub()
     {

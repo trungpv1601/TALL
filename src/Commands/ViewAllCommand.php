@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 class ViewAllCommand extends GeneratorCommand
 {
-    public $name = 'tall-crud:view-all';
+    public $name = 'tall:view-all';
 
-    public $description = 'Make TALL CRUD View All interface for model.';
+    public $description = 'Make TALL View All interface for model.';
 
     protected function getStub()
     {

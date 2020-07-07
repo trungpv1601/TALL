@@ -5,11 +5,11 @@ namespace Trungpv1601\TALL\Commands;
 use Illuminate\Console\Command;
 use Livewire\Commands\ComponentParser;
 
-class TallCrudDeleteCommand extends Command
+class RemoveCommand extends Command
 {
-    public $signature = 'tall-crud:delete {model}';
+    public $signature = 'tall:rm {model}';
 
-    public $description = 'Delete a TALL CRUD.';
+    public $description = 'Remove a TALL.';
 
     public function handle()
     {

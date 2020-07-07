@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 class UpdateCommand extends GeneratorCommand
 {
-    public $name = 'tall-crud:update';
+    public $name = 'tall:update';
 
-    public $description = 'Make TALL CRUD Update interface for model.';
+    public $description = 'Make TALL Update interface for model.';
 
     protected function getStub()
     {

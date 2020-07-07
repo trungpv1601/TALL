@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 class CreateCommand extends GeneratorCommand
 {
-    public $name = 'tall-crud:create';
+    public $name = 'tall:create';
 
-    public $description = 'Make TALL CRUD Create interface for model.';
+    public $description = 'Make TALL Create interface for model.';
 
     protected function getStub()
     {

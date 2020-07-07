@@ -1,11 +1,11 @@
 {
-    "name": "spatie/TALL",
+    "name": "trungpv1601/TALL",
     "description": "Inspire from Laravel Nova",
     "keywords": [
-        "spatie",
+        "trungpv1601",
         "TALL"
     ],
-    "homepage": "https://github.com/spatie/TALL",
+    "homepage": "https://github.com/trungpv1601/TALL",
     "license": "MIT",
     "authors": [
         {

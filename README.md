@@ -1,8 +1,8 @@
 # Inspire from Laravel Nova
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/TALL.svg?style=flat-square)](https://packagist.org/packages/spatie/TALL)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/TALL/run-tests?label=tests)](https://github.com/spatie/TALL/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/TALL.svg?style=flat-square)](https://packagist.org/packages/spatie/TALL)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/trungpv1601/TALL.svg?style=flat-square)](https://packagist.org/packages/trungpv1601/TALL)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/trungpv1601/TALL/run-tests?label=tests)](https://github.com/trungpv1601/TALL/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/trungpv1601/TALL.svg?style=flat-square)](https://packagist.org/packages/trungpv1601/TALL)
 
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.

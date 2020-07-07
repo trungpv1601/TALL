@@ -3,6 +3,7 @@
 namespace Trungpv1601\TALL\Commands;
 
 use Illuminate\Console\Command;
+use Livewire\Commands\ComponentParser;
 
 class TallCrudDeleteCommand extends Command
 {

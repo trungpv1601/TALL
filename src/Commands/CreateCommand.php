@@ -19,6 +19,7 @@ class CreateCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace)
     {
         $plural = Str::plural(trim($this->argument('name')));
+
         return $rootNamespace . '\\Http\\Livewire\\' . $plural;
     }
 
@@ -29,7 +30,7 @@ class CreateCommand extends GeneratorCommand
                 '[namespace]',
                 '[view]',
                 '[model]',
-                '[modelObject]'
+                '[modelObject]',
             ],
             [
                 Str::plural(trim($this->argument('name'))),

@@ -10,10 +10,10 @@ use Trungpv1601\TALL\Commands\TALLCommand;
 use Trungpv1601\TALL\Commands\UpdateCommand;
 use Trungpv1601\TALL\Commands\ViewAllCommand;
 use Trungpv1601\TALL\Commands\ViewCommand;
-use Trungpv1601\TALL\View\Components\SidebarMobileNav;
-use Trungpv1601\TALL\View\Components\SidebarMobileNavItem;
 use Trungpv1601\TALL\View\Components\SidebarDesktopNav;
 use Trungpv1601\TALL\View\Components\SidebarDesktopNavItem;
+use Trungpv1601\TALL\View\Components\SidebarMobileNav;
+use Trungpv1601\TALL\View\Components\SidebarMobileNavItem;
 
 class TALLServiceProvider extends ServiceProvider
 {

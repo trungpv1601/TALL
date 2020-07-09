@@ -15,10 +15,10 @@ class RemoveCommand extends Command
 
     public function handle()
     {
-        $parser = new ComponentParser(
-            config('livewire.class_namespace', 'App\\Http\\Livewire'),
-            config('livewire.view_path', resource_path('views/livewire')),
-            $this->argument('name')
-        );
+        // $parser = new ComponentParser(
+        //     config('livewire.class_namespace', 'App\\Http\\Livewire'),
+        //     config('livewire.view_path', resource_path('views/livewire')),
+        //     $this->argument('name')
+        // );
     }
 }

@@ -17,7 +17,6 @@
             </svg>
             Dashboard
           </a>
-          <x-tall-sidebar-desktop-nav-item />
         </nav>
       </div>
       <div class="flex flex-shrink-0 p-4 bg-gray-700">

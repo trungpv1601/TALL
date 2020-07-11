@@ -4,13 +4,8 @@ namespace Trungpv1601\TALL;
 
 class TALL
 {
-    /**
-     * Get the current TALL version.
-     *
-     * @return string
-     */
-    public static function version()
+    public static function folder()
     {
-        return '1.0.0';
+        return config('TALL.FOLDER', 'TALL');
     }
 }

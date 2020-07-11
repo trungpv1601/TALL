@@ -3,7 +3,6 @@
 namespace Trungpv1601\TALL\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class TALLCommand extends Command
 {
@@ -13,7 +12,7 @@ class TALLCommand extends Command
 
     public function handle()
     {
-        $this->callSilent('tall:view-all', ['name' => Str::plural($this->argument('model'))]);
+        $this->callSilent('tall:view-all', ['name' => $this->argument('model')]);
         $this->callSilent('tall:create', ['name' => $this->argument('model')]);
         $this->callSilent('tall:update', ['name' => $this->argument('model')]);
         $this->callSilent('tall:view', ['name' => $this->argument('model')]);

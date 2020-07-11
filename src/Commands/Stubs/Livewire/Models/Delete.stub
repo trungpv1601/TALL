@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Livewire\[sub_namespace]\[namespace];
+
+use App\[model];
+use Livewire\Component;
+
+class Delete extends Component
+{
+    public $isOpen = false;
+    public $[modelObject];
+
+    protected $listeners = ['delete[model]'];
+
+    public function delete[model]($id)
+    {
+        $this->[modelObject] = [model]::find($id);
+        $this->isOpen = !$this->isOpen;
+    }
+
+    public function delete()
+    {
+        $this->[modelObject] && $this->[modelObject]->delete();
+        $this->[modelObject] = null;
+        $this->isOpen = false;
+        $this->emit('reload[namespace]');
+    }
+
+    public function render()
+    {
+        return view('livewire.[sub_folder].[view].delete');
+    }
+}

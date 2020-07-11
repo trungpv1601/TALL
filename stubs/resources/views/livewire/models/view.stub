@@ -1,9 +1,0 @@
-<div>
-    @can('view', auth()->user())
-
-    <x-modal title="Detail" open="{{$isOpen}}" toogle="toogleView" :isSubmit="false">
-        <x-input name="name" label="Name" required disabled />
-    </x-modal>
-
-    @endcan
-</div>

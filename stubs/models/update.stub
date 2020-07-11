@@ -1,0 +1,11 @@
+<div>
+    @can('update', auth()->user())
+
+    <form wire:submit.prevent="submit">
+        <x-tall-modal title="Update" open="{{$isOpen}}" toogle="update[model]" update>
+            <x-tall-input name="name" label="Name" required />
+        </x-modal>
+    </form>
+
+    @endcan
+</div>

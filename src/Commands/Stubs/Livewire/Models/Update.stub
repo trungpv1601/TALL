@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Livewire\[sub_namespace]\[namespace];
+
+use App\[model];
+use Livewire\Component;
+
+class Update extends Component
+{
+    public $isOpen = false;
+    public $name;
+    public $[modelObject];
+
+    private $rules = [
+        'name' => 'required',
+    ];
+
+    protected $listeners = ['update[model]'];
+
+    public function updated($field)
+    {
+        $this->validateOnly($field, $this->rules);
+    }
+
+    public function submit()
+    {
+        $validatedData = $this->validate($this->rules);
+        if ($this->[modelObject]) {
+            $this->[modelObject]->name = $validatedData['name'];
+            $this->[modelObject]->save();
+        }
+        $this->isOpen = false;
+        $this->emit('reload[namespace]');
+    }
+
+    public function update[model]($id)
+    {
+        $this->[modelObject] = null;
+        $this->isOpen = !$this->isOpen;
+        if ($this->[modelObject] = [model]::find($id)) {
+            $this->name = $this->[modelObject]->name;
+        }
+    }
+
+    public function render()
+    {
+        return view('livewire.[sub_folder].[view].update');
+    }
+}

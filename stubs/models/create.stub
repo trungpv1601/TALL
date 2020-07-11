@@ -1,0 +1,11 @@
+<div>
+    @can('create', auth()->user())
+
+    <form wire:submit.prevent="submit">
+        <x-tall-modal title="Create a new [model]" open="{{$isOpen}}" toogle="create[model]">
+            <x-tall-input name="name" label="Name" required />
+        </x-modal>
+    </form>
+
+    @endcan
+</div>

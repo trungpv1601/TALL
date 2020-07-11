@@ -3,7 +3,9 @@
 namespace Trungpv1601\TALL\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
+use Trungpv1601\TALL\TALL;
 
 class DeleteCommand extends GeneratorCommand
 {
@@ -16,30 +18,79 @@ class DeleteCommand extends GeneratorCommand
         return __DIR__ . '/Stubs/Livewire/Models/Delete.stub';
     }
 
+    protected function getViewStub()
+    {
+        return file_get_contents(__DIR__ . '/../../stubs/models/delete.stub');
+    }
+
+    protected function getViewLivewire()
+    {
+        $plural = Str::plural(strtolower(trim($this->argument('name'))));
+        $folder = strtolower(TALL::folder());
+
+        if (! is_dir($livewireViewPath = resource_path("views/livewire/{$folder}/{$plural}"))) {
+            (new Filesystem)->makeDirectory($livewireViewPath);
+        }
+
+        return "{$livewireViewPath}/delete.blade.php";
+    }
+
     protected function getDefaultNamespace($rootNamespace)
     {
         $plural = Str::plural(trim($this->argument('name')));
+        $folder = ucfirst(strtolower(TALL::folder()));
 
-        return $rootNamespace . '\\Http\\Livewire\\' . $plural;
+        return $rootNamespace . "\\Http\\Livewire\\{$folder}\\" . $plural;
     }
 
     protected function replaceNamespace(&$stub, $name)
     {
+        $subFolder = strtolower(TALL::folder());
+        $subNamespace = ucfirst($subFolder);
+        $namespace = Str::plural(trim($this->argument('name')));
+        $view = strtolower(Str::plural(trim($this->argument('name'))));
+        $model = trim($this->argument('name'));
+        $modelObject = strtolower(trim($this->argument('name')));
+
         $stub = str_replace(
             [
                 '[namespace]',
                 '[view]',
                 '[model]',
                 '[modelObject]',
+                '[sub_namespace]',
+                '[sub_folder]',
             ],
             [
-                Str::plural(trim($this->argument('name'))),
-                strtolower(Str::plural(trim($this->argument('name')))),
-                trim($this->argument('name')),
-                strtolower(trim($this->argument('name'))),
+                $namespace,
+                $view,
+                Str::singular($model),
+                Str::singular($modelObject),
+                $subNamespace,
+                $subFolder,
             ],
             $stub
         );
+        $stubView = str_replace(
+            [
+                '[namespace]',
+                '[view]',
+                '[model]',
+                '[modelObject]',
+                '[sub_folder]',
+            ],
+            [
+                $namespace,
+                $view,
+                Str::singular($model),
+                Str::singular($modelObject),
+                $subFolder,
+            ],
+            $this->getViewStub()
+        );
+
+        // Make livewire view
+        file_put_contents($this->getViewLivewire(), $stubView);
 
         return $this;
     }

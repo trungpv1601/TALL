@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Livewire\[sub_namespace]\[namespace];
+
+use App\[model];
+use Livewire\Component;
+
+class View extends Component
+{
+    public $isOpen = false;
+    public $name;
+    public $email;
+
+    protected $listeners = ['view[model]', 'toogleView'];
+
+    public function view[model]($id)
+    {
+        $this->isOpen = true;
+        if ($[modelObject] = [model]::find($id)) {
+            $this->name = $[modelObject]->name;
+        }
+    }
+
+    public function toogleView()
+    {
+        $this->isOpen = !$this->isOpen;
+    }
+
+    public function render()
+    {
+        return view('livewire.[sub_folder].[view].view');
+    }
+}

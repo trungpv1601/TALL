@@ -6,14 +6,22 @@ use Illuminate\View\Component;
 
 class SidebarDesktopNavItem extends Component
 {
+    public $label;
+    public $url;
+    public $icon;
+    public $route;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label, $url = false, $icon = false, $route = false)
     {
-        //
+        $this->label = $label;
+        $this->url = boolval($url) ? $url : false;
+        $this->icon = $icon;
+        $this->route = boolval($route) ? $route : false;
     }
 
     /**

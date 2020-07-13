@@ -12,16 +12,22 @@ class Modal extends Component
 
     public $toogle;
 
+    public $update;
+
+    public $submit;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($open, $title = false, $toogle)
+    public function __construct($open, $title = false, $toogle, $update = false, $submit = false)
     {
         $this->open = $open;
         $this->title = $title;
         $this->toogle = $toogle;
+        $this->update = $update;
+        $this->submit = $submit;
     }
 
     /**

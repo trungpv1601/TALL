@@ -1,7 +1,7 @@
 <div>
     @can('view', auth()->user())
 
-    <x-tall-modal title="Detail" open="{{$isOpen}}" toogle="toogleView" :isSubmit="false">
+    <x-tall-modal title="Detail" open="{{$isOpen}}" toogle="toogleView">
         <x-tall-input name="name" label="Name" required disabled />
     </x-modal>
 

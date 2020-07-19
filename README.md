@@ -1,4 +1,4 @@
-# Inspire from Laravel Nova
+# Laravel Package CRUD Generator
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/trungpv1601/TALL.svg?style=flat-square)](https://packagist.org/packages/trungpv1601/TALL)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/trungpv1601/TALL/run-tests?label=tests)](https://github.com/trungpv1601/TALL/actions?query=workflow%3Arun-tests+branch%3Amaster)

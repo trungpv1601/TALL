@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Livewire\[sub_namespace];
+namespace App\Http\Livewire\[sub_namespace]\[namespace];
 
 use App\[model];
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class [class] extends Component
+class Index extends Component
 {
     use WithPagination, AuthorizesRequests;
 
-    protected $listeners = ['reset[class]' => 'resetPage', 'reload[class]'];
+    protected $listeners = ['reset[namespace]' => 'resetPage', 'reload[namespace]'];
 
     public function mount()
     {
         $this->authorize('viewAny', auth()->user());
     }
 
-    public function reload[class]()
+    public function reload[namespace]()
     {
         $this->page = $this->page;
     }
 
     public function render()
     {
-        return view('livewire.[sub_folder].[view]', [
+        return view('livewire.[sub_folder].[view].index', [
             '[view]' => [model]::orderBy('id', 'desc')->paginate(10)
         ]);
     }

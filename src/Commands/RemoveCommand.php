@@ -42,16 +42,6 @@ class RemoveCommand extends Command
         }
 
         File::deleteDirectory($classPath);
-
-        $classFilePath = app_path() . "/Http/Livewire/{$folder}/{$plural}.php";
-        if (! File::exists($classFilePath) && ! $force) {
-            $this->line("<options=bold,reverse;fg=red> WHOOPS-IE-TOOTLES </> 😳 \n");
-            $this->line("<fg=red;options=bold>Class doesn't exist:</> {$classFilePath}");
-
-            return false;
-        }
-
-        File::delete($classFilePath);
     }
 
     private function removeView($force)
@@ -67,15 +57,5 @@ class RemoveCommand extends Command
         }
 
         File::deleteDirectory($viewsPath);
-
-        $viewsFilePath = base_path() . "/resources/views/livewire/{$folder}/{$plural}.blade.php";
-        if (! File::exists($viewsFilePath) && ! $force) {
-            $this->line("<options=bold,reverse;fg=red> WHOOPS-IE-TOOTLES </> 😳 \n");
-            $this->line("<fg=red;options=bold>Class doesn't exist:</> {$viewsFilePath}");
-
-            return false;
-        }
-
-        File::delete($viewsFilePath);
     }
 }

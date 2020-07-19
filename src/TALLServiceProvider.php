@@ -5,11 +5,11 @@ namespace Trungpv1601\TALL;
 use Illuminate\Support\ServiceProvider;
 use Trungpv1601\TALL\Commands\CreateCommand;
 use Trungpv1601\TALL\Commands\DeleteCommand;
+use Trungpv1601\TALL\Commands\IndexCommand;
 use Trungpv1601\TALL\Commands\PublishCommand;
 use Trungpv1601\TALL\Commands\RemoveCommand;
 use Trungpv1601\TALL\Commands\TALLCommand;
 use Trungpv1601\TALL\Commands\UpdateCommand;
-use Trungpv1601\TALL\Commands\ViewAllCommand;
 use Trungpv1601\TALL\Commands\ViewCommand;
 use Trungpv1601\TALL\View\Components\Input;
 use Trungpv1601\TALL\View\Components\Modal;
@@ -41,7 +41,7 @@ class TALLServiceProvider extends ServiceProvider
                 CreateCommand::class,
                 UpdateCommand::class,
                 DeleteCommand::class,
-                ViewAllCommand::class,
+                IndexCommand::class,
                 ViewCommand::class,
                 RemoveCommand::class,
             ]);

@@ -10,15 +10,24 @@ class Input extends Component
 
     public $label;
 
+    public $required;
+
+    public $disabled;
+
+    public $readonly;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $label)
+    public function __construct($name, $label, $required = false, $disabled = false, $readonly = false)
     {
         $this->name = $name;
         $this->label = $label;
+        $this->required = $required;
+        $this->disabled = $disabled;
+        $this->readonly = $readonly;
     }
 
     /**

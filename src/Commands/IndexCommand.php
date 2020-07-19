@@ -2,11 +2,11 @@
 
 namespace Trungpv1601\TALL\Commands;
 
-class DeleteCommand extends BaseTALLCommand
+class IndexCommand extends BaseTALLCommand
 {
-    public $name = 'tall:delete';
+    public $name = 'tall:index';
 
-    public $description = 'Make TALL Delete interface for model.';
+    public $description = 'Make TALL Index interface for model.';
 
     /**
      * Get the desired class name from the input.
@@ -15,6 +15,6 @@ class DeleteCommand extends BaseTALLCommand
      */
     protected function getNameInput()
     {
-        return 'Delete';
+        return 'Index';
     }
 }

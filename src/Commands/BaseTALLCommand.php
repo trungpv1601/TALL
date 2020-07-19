@@ -7,39 +7,41 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Trungpv1601\TALL\TALL;
 
-class ViewAllCommand extends GeneratorCommand
+class BaseTALLCommand extends GeneratorCommand
 {
-    public $name = 'tall:view-all';
-
-    public $description = 'Make TALL View All interface for model.';
-
     protected function getStub()
     {
-        return __DIR__ . '/Stubs/Livewire/Models.stub';
+        $name = $this->getNameInput();
+
+        return __DIR__ . "/Stubs/Livewire/Models/{$name}.stub";
     }
 
     protected function getViewStub()
     {
-        return file_get_contents(__DIR__ . '/../../stubs/models.stub');
+        $name = lcfirst($this->getNameInput());
+
+        return file_get_contents(__DIR__ . "/../../stubs/models/{$name}.stub");
     }
 
     protected function getViewLivewire()
     {
         $plural = Str::plural(strtolower(trim($this->argument('name'))));
         $folder = strtolower(TALL::folder());
+        $name = strtolower($this->getNameInput());
 
-        if (! is_dir($livewireViewPath = resource_path("views/livewire/{$folder}"))) {
+        if (! is_dir($livewireViewPath = resource_path("views/livewire/{$folder}/{$plural}"))) {
             (new Filesystem)->makeDirectory($livewireViewPath);
         }
 
-        return $livewireViewPath . "/{$plural}.blade.php";
+        return "{$livewireViewPath}/{$name}.blade.php";
     }
 
     protected function getDefaultNamespace($rootNamespace)
     {
+        $plural = Str::plural(trim($this->argument('name')));
         $folder = ucfirst(strtolower(TALL::folder()));
 
-        return $rootNamespace . "\\Http\\Livewire\\{$folder}\\";
+        return $rootNamespace . "\\Http\\Livewire\\{$folder}\\" . $plural;
     }
 
     protected function replaceNamespace(&$stub, $name)
@@ -48,26 +50,28 @@ class ViewAllCommand extends GeneratorCommand
         $subNamespace = ucfirst($subFolder);
         $namespace = Str::plural(trim($this->argument('name')));
         $view = strtolower(Str::plural(trim($this->argument('name'))));
+        $model = trim($this->argument('name'));
         $modelObject = strtolower(trim($this->argument('name')));
 
         $stub = str_replace(
             [
-                '[class]',
+                '[namespace]',
                 '[view]',
                 '[model]',
+                '[modelObject]',
                 '[sub_namespace]',
                 '[sub_folder]',
             ],
             [
                 $namespace,
                 $view,
-                Str::singular(trim($this->argument('name'))),
+                Str::singular($model),
+                Str::singular($modelObject),
                 $subNamespace,
                 $subFolder,
             ],
             $stub
         );
-
         $stubView = str_replace(
             [
                 '[namespace]',
@@ -79,7 +83,7 @@ class ViewAllCommand extends GeneratorCommand
             [
                 $namespace,
                 $view,
-                Str::singular(trim($this->argument('name'))),
+                Str::singular($model),
                 Str::singular($modelObject),
                 $subFolder,
             ],
@@ -90,15 +94,5 @@ class ViewAllCommand extends GeneratorCommand
         file_put_contents($this->getViewLivewire(), $stubView);
 
         return $this;
-    }
-
-    /**
-     * Get the desired class name from the input.
-     *
-     * @return string
-     */
-    protected function getNameInput()
-    {
-        return Str::plural(trim($this->argument('name')));
     }
 }

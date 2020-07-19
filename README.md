@@ -7,6 +7,10 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
+### Require Packages
+ - [Laravel Livewire](https://github.com/livewire/livewire)
+ - [Laravel TALL Preset](https://github.com/laravel-frontend-presets/tall)
+
 ## Installation
 
 You can install the package via composer:
@@ -15,31 +19,22 @@ You can install the package via composer:
 composer require trungpv1601/TALL
 ```
 
-You can publish and run the migrations with:
+You can publish with:
 
 ```bash
-php artisan vendor:publish --provider="Trungpv1601\TALL\TALLServiceProvider" --tag="migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Trungpv1601\TALL\TALLServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+php artisan vendor:publish --provider="Trungpv1601\TALL\TALLServiceProvider"
 ```
 
 ## Usage
 
-``` php
-$TALL = new Trungpv1601\TALL();
-echo $TALL->echoPhrase('Hello, Trungpv1601!');
+``` bash
+$ php artisan make:tall User
 ```
+
+``` bash
+$ php artisan tall:rm User
+```
+
 
 ## Testing
 

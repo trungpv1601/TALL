@@ -25,7 +25,7 @@ class BaseTALLCommand extends GeneratorCommand
 
     protected function getViewLivewire()
     {
-        $plural = Str::plural(strtolower(trim($this->argument('name'))));
+        $plural = Str::kebab($this->getPluralName());
         $folder = strtolower(TALL::folder());
         $name = strtolower($this->getNameInput());
 
@@ -38,18 +38,24 @@ class BaseTALLCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        $plural = Str::plural(trim($this->argument('name')));
+        $plural = $this->getPluralName();
         $folder = ucfirst(strtolower(TALL::folder()));
 
         return $rootNamespace . "\\Http\\Livewire\\{$folder}\\" . $plural;
     }
 
+    private function getPluralName()
+    {
+        return Str::plural(trim($this->argument('name')));
+    }
+
     protected function replaceNamespace(&$stub, $name)
     {
+        $plural = $this->getPluralName();
         $subFolder = strtolower(TALL::folder());
         $subNamespace = ucfirst($subFolder);
-        $namespace = Str::plural(trim($this->argument('name')));
-        $view = strtolower(Str::plural(trim($this->argument('name'))));
+        $namespace = $plural;
+        $view = strtolower(Str::kebab($plural));
         $model = trim($this->argument('name'));
         $modelObject = strtolower(trim($this->argument('name')));
 
@@ -58,6 +64,7 @@ class BaseTALLCommand extends GeneratorCommand
                 '[namespace]',
                 '[view]',
                 '[model]',
+                '[modelObjects]',
                 '[modelObject]',
                 '[sub_namespace]',
                 '[sub_folder]',
@@ -66,6 +73,7 @@ class BaseTALLCommand extends GeneratorCommand
                 $namespace,
                 $view,
                 Str::singular($model),
+                Str::plural($modelObject),
                 Str::singular($modelObject),
                 $subNamespace,
                 $subFolder,
@@ -74,16 +82,22 @@ class BaseTALLCommand extends GeneratorCommand
         );
         $stubView = str_replace(
             [
+                '[title]',
                 '[namespace]',
                 '[view]',
+                '[model_title]',
                 '[model]',
+                '[modelObjects]',
                 '[modelObject]',
                 '[sub_folder]',
             ],
             [
+                Str::of($namespace)->snake()->replace('_', ' ')->title(),
                 $namespace,
                 $view,
+                Str::of(Str::singular($model))->snake()->replace('_', ' ')->title(),
                 Str::singular($model),
+                Str::plural($modelObject),
                 Str::singular($modelObject),
                 $subFolder,
             ],

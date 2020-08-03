@@ -46,7 +46,7 @@ class RemoveCommand extends Command
 
     private function removeView($force)
     {
-        $plural = strtolower(Str::plural(trim($this->argument('name'))));
+        $plural = Str::kebab(Str::plural(trim($this->argument('name'))));
         $folder = strtolower(TALL::folder());
         $viewsPath = base_path() . "/resources/views/livewire/{$folder}/{$plural}";
         if (! File::exists($viewsPath) && ! $force) {

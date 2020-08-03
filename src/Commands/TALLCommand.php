@@ -22,7 +22,7 @@ class TALLCommand extends Command
         $this->comment('All done');
 
         $this->line("<options=bold,reverse;fg=green> {$this->argument('model')} Created </> 🤙\n");
-        $view = strtolower(Str::plural(trim($this->argument('model'))));
+        $view = Str::kebab(Str::plural(trim($this->argument('model'))));
         $this->line("<options=bold,reverse;fg=green> Put Route::livewire('/{$view}', 'tall.{$view}.index')->layout('TALL::layouts.app')->name('{$view}'); into web.php file. </> 🤙\n");
     }
 }

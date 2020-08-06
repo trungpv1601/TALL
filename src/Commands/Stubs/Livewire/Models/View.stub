@@ -7,23 +7,13 @@ use Livewire\Component;
 
 class View extends Component
 {
-    public $isOpen = false;
     public $name;
-    public $email;
 
-    protected $listeners = ['view[model]', 'toogleView'];
-
-    public function view[model]($id)
+    public function mount($id)
     {
-        $this->isOpen = true;
         if ($[modelObject] = [model]::find($id)) {
             $this->name = $[modelObject]->name;
         }
-    }
-
-    public function toogleView()
-    {
-        $this->isOpen = !$this->isOpen;
     }
 
     public function render()

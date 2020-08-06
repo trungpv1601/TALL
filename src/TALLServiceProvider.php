@@ -8,11 +8,15 @@ use Trungpv1601\TALL\Commands\DeleteCommand;
 use Trungpv1601\TALL\Commands\IndexCommand;
 use Trungpv1601\TALL\Commands\PublishCommand;
 use Trungpv1601\TALL\Commands\RemoveCommand;
+use Trungpv1601\TALL\Commands\TableCommand;
 use Trungpv1601\TALL\Commands\TALLCommand;
 use Trungpv1601\TALL\Commands\UpdateCommand;
 use Trungpv1601\TALL\Commands\ViewCommand;
+use Trungpv1601\TALL\View\Components\Checkbox;
+use Trungpv1601\TALL\View\Components\Col;
 use Trungpv1601\TALL\View\Components\Input;
 use Trungpv1601\TALL\View\Components\Modal;
+use Trungpv1601\TALL\View\Components\Row;
 use Trungpv1601\TALL\View\Components\SidebarDesktopNav;
 use Trungpv1601\TALL\View\Components\SidebarDesktopNavItem;
 use Trungpv1601\TALL\View\Components\SidebarMobileNav;
@@ -44,6 +48,7 @@ class TALLServiceProvider extends ServiceProvider
                 IndexCommand::class,
                 ViewCommand::class,
                 RemoveCommand::class,
+                TableCommand::class,
             ]);
         }
 
@@ -55,7 +60,10 @@ class TALLServiceProvider extends ServiceProvider
             SidebarDesktopNav::class,
             SidebarDesktopNavItem::class,
             Input::class,
+            Checkbox::class,
             Modal::class,
+            Row::class,
+            Col::class,
         ]);
     }
 

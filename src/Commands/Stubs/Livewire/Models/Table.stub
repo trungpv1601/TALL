@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Livewire\[sub_namespace]\[namespace];
+
+use App\[model];
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class Table extends Component
+{
+    use WithPagination, AuthorizesRequests;
+
+    protected $listeners = ['reset[namespace]' => 'resetPage', 'reload[namespace]'];
+
+    public function mount()
+    {
+        $this->authorize('viewAny', auth()->user());
+    }
+
+    public function reload[namespace]()
+    {
+        $this->page = $this->page;
+    }
+
+    public function render()
+    {
+        return view('livewire.[sub_folder].[view].table', [
+            '[modelObjects]' => [model]::orderBy('id', 'desc')->paginate(10)
+        ]);
+    }
+}

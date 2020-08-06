@@ -1,11 +1,41 @@
 <div>
-    @can('create', auth()->user())
+  @can('create', auth()->user())
+  <main class="relative z-0 flex-1 py-6 overflow-y-auto focus:outline-none h-(screen-16)">
+    <div class="px-4 pb-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+      <h1 class="text-2xl font-semibold text-gray-900">Create a new [model_title]</h1>
+    </div>
 
-    <form wire:submit.prevent="submit">
-        <x-tall-modal title="Create a new [model_title]" open="{{$isOpen}}" toogle="create[model]" submit>
-            <x-tall-input name="name" label="Name" required />
-        </x-modal>
-    </form>
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+      <!-- Replace with your content -->
+      <form wire:submit.prevent="submit">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <x-tall-row>
+              <x-tall-col>
+                <x-tall-input name="name" label="Name" required />
+              </x-tall-col>
+            </x-tall-row>
+          </div>
+          <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
+            <div class="flex justify-end">
+              <span class="inline-flex rounded-md shadow-sm">
+                <button type="button" wire:click="$emit('view[namespace]', 'TABLE')"
+                  class="px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800">
+                  Cancel
+                </button>
+              </span>
+              <span class="inline-flex ml-3 rounded-md shadow-sm">
+                <button type="submit"
+                  class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                  Save
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- /End replace -->
+    </div>
+  </main>
 
-    @endcan
+  @endcan
 </div>

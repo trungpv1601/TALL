@@ -7,15 +7,12 @@ use Livewire\Component;
 
 class Update extends Component
 {
-    public $isOpen = false;
     public $name;
     public $[modelObject];
 
     private $rules = [
         'name' => 'required',
     ];
-
-    protected $listeners = ['update[model]'];
 
     public function updated($field)
     {
@@ -29,14 +26,12 @@ class Update extends Component
             $this->[modelObject]->name = $validatedData['name'];
             $this->[modelObject]->save();
         }
-        $this->isOpen = false;
-        $this->emit('reload[namespace]');
+        $this->emit('view[namespace]');
     }
 
-    public function update[model]($id)
+    public function mount($id)
     {
         $this->[modelObject] = null;
-        $this->isOpen = !$this->isOpen;
         if ($this->[modelObject] = [model]::find($id)) {
             $this->name = $this->[modelObject]->name;
         }

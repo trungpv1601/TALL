@@ -7,18 +7,11 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $isOpen = false;
     public $name;
 
     private $rules = [
         'name' => 'required',
     ];
-
-    protected $listeners = ['create[model]'];
-
-    public function mount()
-    {
-    }
 
     public function updated($field)
     {
@@ -29,13 +22,7 @@ class Create extends Component
     {
         $validatedData = $this->validate($this->rules);
         [model]::create($validatedData);
-        $this->isOpen = false;
         $this->emit('reset[namespace]');
-    }
-
-    public function create[model]()
-    {
-        $this->isOpen = !$this->isOpen;
     }
 
     public function render()

@@ -26,7 +26,8 @@ class Update extends Component
             $this->[modelObject]->name = $validatedData['name'];
             $this->[modelObject]->save();
         }
-        $this->emit('view[namespace]');
+
+        return redirect()->route('[view]');
     }
 
     public function mount($id)

@@ -8,7 +8,6 @@ use Trungpv1601\TALL\Commands\DeleteCommand;
 use Trungpv1601\TALL\Commands\IndexCommand;
 use Trungpv1601\TALL\Commands\PublishCommand;
 use Trungpv1601\TALL\Commands\RemoveCommand;
-use Trungpv1601\TALL\Commands\TableCommand;
 use Trungpv1601\TALL\Commands\TALLCommand;
 use Trungpv1601\TALL\Commands\UpdateCommand;
 use Trungpv1601\TALL\Commands\ViewCommand;
@@ -48,7 +47,6 @@ class TALLServiceProvider extends ServiceProvider
                 IndexCommand::class,
                 ViewCommand::class,
                 RemoveCommand::class,
-                TableCommand::class,
             ]);
         }
 

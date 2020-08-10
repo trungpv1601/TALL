@@ -22,7 +22,8 @@ class Create extends Component
     {
         $validatedData = $this->validate($this->rules);
         [model]::create($validatedData);
-        $this->emit('reset[namespace]');
+
+        return redirect()->route('[view]');
     }
 
     public function render()

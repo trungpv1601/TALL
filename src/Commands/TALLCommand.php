@@ -24,6 +24,10 @@ class TALLCommand extends Command
 
         $this->line("<options=bold,reverse;fg=green> {$this->argument('model')} Created </> 🤙\n");
         $view = Str::kebab(Str::plural(trim($this->argument('model'))));
-        $this->line("<options=bold,reverse;fg=green> Put Route::livewire('/{$view}', 'tall.{$view}.index')->layout('TALL::layouts.app')->name('{$view}'); into web.php file. </> 🤙\n");
+        $this->line("<options=bold,reverse;fg=green> Put these lines into web.php file. </> 🤙\n\n");
+        $this->line("<options=bold,reverse;fg=green> Route::livewire('/{$view}', 'tall.{$view}.index')->layout('TALL::layouts.app')->name('{$view}'); </> \n");
+        $this->line("<options=bold,reverse;fg=green> Route::livewire('/{$view}/create', 'tall.{$view}.create')->layout('TALL::layouts.app')->name('{$view}.create'); </> \n");
+        $this->line("<options=bold,reverse;fg=green> Route::livewire('/{$view}/{id}', 'tall.{$view}.view')->layout('TALL::layouts.app')->name('{$view}.view'); </> \n");
+        $this->line("<options=bold,reverse;fg=green> Route::livewire('/{$view}/{id}/update', 'tall.{$view}.update')->layout('TALL::layouts.app')->name('{$view}.update'); </> \n");
     }
 }

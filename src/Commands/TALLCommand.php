@@ -14,7 +14,6 @@ class TALLCommand extends Command
     public function handle()
     {
         $this->callSilent('tall:index', ['name' => $this->argument('model')]);
-        $this->callSilent('tall:table', ['name' => $this->argument('model')]);
         $this->callSilent('tall:create', ['name' => $this->argument('model')]);
         $this->callSilent('tall:update', ['name' => $this->argument('model')]);
         $this->callSilent('tall:view', ['name' => $this->argument('model')]);
